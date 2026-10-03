@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: goldscope
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: goldscope_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U goldscope -d goldscope_test"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql+psycopg://goldscope:ci_only_password@localhost:5432/goldscope_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install from lockfile
+        run: uv sync --locked
+      - name: Format check
+        run: uv run ruff format --check .
+      - name: Lint
+        run: uv run ruff check .
+      - name: Type check
+        run: uv run mypy
+      - name: Unit + PostgreSQL integration tests
+        run: uv run pytest --cov=goldscope -rs
+      - name: Lab 00 tests (stdlib only)
+        run: python -m unittest discover -s lab00/tests -v
+      - name: CLI smoke
+        run: uv run goldscope doctor

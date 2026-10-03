@@ -1,0 +1,17 @@
+test_empty_observations (test_audit.AuditTests.test_empty_observations) ... ok
+test_fred_error (test_audit.AuditTests.test_fred_error) ... ok
+test_fred_pagination (test_audit.AuditTests.test_fred_pagination) ... ok
+test_http_200_message_is_not_data (test_audit.AuditTests.test_http_200_message_is_not_data) ... ok
+test_message_wins_over_partial_data (test_audit.AuditTests.test_message_wins_over_partial_data) ... ok
+test_negative_yield_is_counted_not_deleted (test_audit.AuditTests.test_negative_yield_is_counted_not_deleted) ... ok
+test_network_error_does_not_expose_key (test_audit.AuditTests.test_network_error_does_not_expose_key) ... ok
+test_no_keys_does_not_call_network (test_audit.AuditTests.test_no_keys_does_not_call_network) ... ok
+test_non_object_payload (test_audit.AuditTests.test_non_object_payload) ... ok
+test_quality_missing_nonfinite_and_dates (test_audit.AuditTests.test_quality_missing_nonfinite_and_dates) ... ok
+test_schema_not_assumed (test_audit.AuditTests.test_schema_not_assumed) ... ok
+test_wrong_host_rejected (test_audit.AuditTests.test_wrong_host_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.003s
+
+OK

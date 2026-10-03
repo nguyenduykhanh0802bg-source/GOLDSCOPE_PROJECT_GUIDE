@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-09-30T07:43:07.599380+00:00",
+  "mode": "account_audit",
+  "credentials_configured": {
+    "ALPHA_VANTAGE_API_KEY": false,
+    "FRED_API_KEY": false
+  },
+  "probes": [
+    {
+      "name": "gold_history",
+      "status": "blocked_missing_key"
+    },
+    {
+      "name": "fred_account",
+      "status": "blocked_missing_key"
+    }
+  ],
+  "lab00_gate": "NOT_PASSED",
+  "manual_review_required": [
+    "gold entitlement and actual schema",
+    "unit/currency/price definition",
+    "coverage and pagination",
+    "publication timezone/calendar",
+    "revision history",
+    "storage/display rights",
+    "forecast cutoff"
+  ]
+}

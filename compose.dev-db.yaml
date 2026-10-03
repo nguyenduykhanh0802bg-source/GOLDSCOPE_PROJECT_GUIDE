@@ -1,0 +1,22 @@
+# Local development database only (GS-004). The full application Compose file comes in GS-011.
+# Credentials below are throwaway LOCAL values; never reuse them anywhere else.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: goldscope
+      POSTGRES_PASSWORD: goldscope_local_only
+      POSTGRES_DB: goldscope_dev
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - goldscope_pgdata:/var/lib/postgresql/data
+      - ./scripts/db/init-databases.sh:/docker-entrypoint-initdb.d/10-init-databases.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U goldscope -d goldscope_dev"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  goldscope_pgdata:

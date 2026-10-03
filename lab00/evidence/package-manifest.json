@@ -1,0 +1,12 @@
+{
+  ".gitignore": "13534b9998f7205182eaedb75093850d578769029c5180f39ac4603ae03a99ac",
+  "README.md": "bce390e62891ee06a298eba169462939b81d547f9b6190697ed36a12ec616817",
+  "configs/data-contract.json": "86e20adc8d85b7e5df14e5afbfff0434eae719d23d459d38aea3872fe9a00cae",
+  "docs/ADR-0001-source-contract.md": "a3e0954b19a61c79b9f0353e81e3c8c38908995afbc655fc02e63131702483d5",
+  "docs/data-source-audit.md": "31ce574c7b471deceb08e4e956e458d4ec90b6eb83b0d2485853dc057b9bfd5f",
+  "evidence/account-preflight.json": "61e177280e864c985c284c507db228443a326bfb4ed311df7029fb4911dc6db7",
+  "evidence/public-probe.json": "a4132baf0471791bf969952bcf593115aa73a81cc54ea8b23d1fad5ca9c6cbd9",
+  "evidence/test-summary.json": "0a711047678d8fc9fe6bc71d2bf1522af297563fffa0c0434a2eabebd6b4068b",
+  "scripts/audit_sources.py": "0567c62b74f426872d4deb45ed1b1b812129a017e242ab51c1aa49eb6345cb41",
+  "tests/test_audit.py": "75164ab19d2923056542ba25b65f55f86f0a0cbe4e45439e07d94a2d7d2700bf"
+}

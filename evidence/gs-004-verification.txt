@@ -1,0 +1,30 @@
+GS-004 verification — 2026-10-01 (clean copy, sandbox Linux)
+env: CPython 3.12.3, uv 0.11.7, PostgreSQL 16.15 (Ubuntu apt; target is 17)
+$ uv sync --locked -> exit 0
+$ uv run pytest -q  (TEST_DATABASE_URL set, dedicated goldscope_test DB)
+........                                                                 [100%]
+80 passed in 3.13s
+$ env -u TEST_DATABASE_URL uv run pytest -q
+37 passed, 43 skipped in 0.57s
+$ uv run ruff format --check .
+70 files already formatted
+$ uv run ruff check .
+All checks passed!
+$ uv run mypy
+Success: no issues found in 22 source files
+$ python -m unittest discover -s lab00/tests
+OK
+$ alembic downgrade base; upgrade head; check (goldscope_dev)
+downgrade exit 0
+upgrade exit 0
+No new upgrade operations detected.
+$ psql tables:
+alembic_version
+data_quality_events
+data_sources
+ingestion_runs
+macro_observations
+macro_series
+market_observations
+raw_objects
+NOT run: PostgreSQL 17, docker compose (compose.dev-db.yaml), GitHub Actions, upgrade-from-older-schema, concurrent writers

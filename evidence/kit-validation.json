@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-10-01T01:08:49.043113+00:00",
+  "documentation_files": 47,
+  "task_specs": 15,
+  "claude_lines": 86,
+  "rules_yaml": "passed",
+  "relative_links_and_fences": "passed",
+  "lab00_test_command": "python -m unittest discover -s lab00/tests -v",
+  "python_runtime_used": "3.12.14",
+  "lab00_test_exit_code": 0,
+  "lab00_tests": 12,
+  "claude_code_runtime_tested": false,
+  "authenticated_api_called_in_this_packaging": false,
+  "errors": []
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-09-30T07:42:46.264353+00:00",
+  "mode": "public_probe",
+  "credentials_configured": {
+    "ALPHA_VANTAGE_API_KEY": false,
+    "FRED_API_KEY": false
+  },
+  "probes": [
+    {
+      "name": "gold_history",
+      "requested_at": "2026-09-30T07:42:46.264387+00:00",
+      "endpoint": "https://www.alphavantage.co/query",
+      "params": {
+        "function": "GOLD_SILVER_HISTORY",
+        "symbol": "GOLD",
+        "interval": "daily",
+        "apikey": "[REDACTED]"
+      },
+      "http_status": 200,
+      "response_bytes": 220,
+      "finished_at": "2026-09-30T07:42:56.271121+00:00",
+      "response_sha256": "e8ddc218d89ff77ad7e395782b4c4d28d10d328ae90c3ba597a8e7d3689b9585",
+      "top_level_fields": [
+        "Information"
+      ],
+      "status": "provider_message_not_data",
+      "message_fields": [
+        "Information"
+      ],
+      "body_saved": false
+    },
+    {
+      "name": "fred_no_key_control",
+      "requested_at": "2026-09-30T07:42:56.271249+00:00",
+      "endpoint": "https://api.stlouisfed.org/fred/series/observations",
+      "params": {
+        "series_id": "DGS10",
+        "file_type": "json",
+        "limit": 3
+      },
+      "http_status": 400,
+      "response_bytes": 162,
+      "finished_at": "2026-09-30T07:43:05.842786+00:00",
+      "response_sha256": "da3c632f9a98b4c8f641de2b0763d513b4642316fe56d52d883002e011a892ff",
+      "top_level_fields": [
+        "error_code",
+        "error_message"
+      ],
+      "status": "http_error",
+      "provider_error_code": 400,
+      "body_saved": false
+    }
+  ],
+  "lab00_gate": "NOT_PASSED",
+  "manual_review_required": [
+    "gold entitlement and actual schema",
+    "unit/currency/price definition",
+    "coverage and pagination",
+    "publication timezone/calendar",
+    "revision history",
+    "storage/display rights",
+    "forecast cutoff"
+  ]
+}
